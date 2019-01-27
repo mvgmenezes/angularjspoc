@@ -11,6 +11,8 @@ angular.module('alurapic').controller('FotosController', function ($scope, $http
 
     $scope.fotos = [];
 
+    $scope.filtro = '';
+
     /*
     //pelo o $http ser assincrono ele nao garante que executara corretamente, por isso ele te dara
     //uma promessa que irá executar. promisse

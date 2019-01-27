@@ -19,9 +19,23 @@
                     <h1 class="text-center">Alurapic</h1>
             </div>
 
-            <meu-painel ng-repeat="fotoItem in fotos" titulo="{{fotoItem.titulo}}">
-               <img class="img-responsive center-block" src="{{fotoItem.url}}" alt="{{fotoItem.titulo}}">
-            </meu-painel><!-- fim panel -->   
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+                        <!--ng-model permite escrever no scope(propriedade filtro) no momento que o usuario for digitando no input-->
+                        <input ng-model="filtro" class="form-control" placeholder="filtrar">
+                    </form>
+                </div><!--fim col-md-12-->
+            </div><!-- fim row-->
+
+            <div class="row">
+                <!-- o ng-repeat tem a propriedde filter e pode ser informando via filter : <valor> -->
+                <meu-painel class="col-md-2" ng-repeat="fotoItem in fotos | filter: filtro" titulo="{{fotoItem.titulo}}">
+                    <img class="img-responsive center-block" src="{{fotoItem.url}}" alt="{{fotoItem.titulo}}">
+                </meu-painel><!-- fim panel -->   
+
+            </div>
+            
                        
         </div> <!-- fim container -->        
     </body>
