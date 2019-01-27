@@ -11,6 +11,7 @@ angular.module('alurapic').controller('FotosController', function ($scope, $http
 
     $scope.fotos = [];
 
+    /*
     //pelo o $http ser assincrono ele nao garante que executara corretamente, por isso ele te dara
     //uma promessa que irá executar. promisse
     var promise = $http.get('v1/fotos');
@@ -20,6 +21,16 @@ angular.module('alurapic').controller('FotosController', function ($scope, $http
         $scope.fotos = retorno.data;
     }).catch(function(error){
         console.log(error);
+    });
+    */
+
+    //Usando um atalho do bloco acima comentado 
+    $http.get('v1/fotos')
+    .success(function(fotos){
+        $scope.fotos = fotos;
+    })
+    .error(function(erro){
+        console.log(erro);
     });
 
 });
