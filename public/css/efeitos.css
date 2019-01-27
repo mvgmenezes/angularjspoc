@@ -1,0 +1,25 @@
+
+
+/* aplicando o sumir dos itens filtrados de forma devagar, usando a propriedade transform*/
+.painel-animado {
+    -moz-transition:transform 0.8s;
+    -webkit-transition:transform 0.8s;
+    -ms-transition:transform 0.8s;
+    -o-transition:transform 0.8s;
+    transition:transform 0.8s;
+}
+
+
+
+/* o angular quando realiza o fitro chama a classe ng-leave 
+que indica os objetos que estao sendo excluidos do filtro e como queremos utilizar um efeito no esconder
+esses itens devemos chamar a classe active, para isso chamamos o ng-leave-active*/
+.painel-animado.ng-leave-active {
+    -moz-transform: scale(0.1);
+    -webkit-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    -o-transform: scale(0.1);
+    transform: scale(0.1);
+  } 
+
+

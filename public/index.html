@@ -7,6 +7,7 @@
         <title>Alurapic</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/efeitos.css">
         <script src="js/lib/angular.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/controllers/fotos-controllers.js"></script>
@@ -30,7 +31,7 @@
 
             <div class="row">
                 <!-- o ng-repeat tem a propriedde filter e pode ser informando via filter : <valor> -->
-                <meu-painel class="col-md-2" ng-repeat="fotoItem in fotos | filter: filtro" titulo="{{fotoItem.titulo}}">
+                <meu-painel class="col-md-2 painel-animado" ng-repeat="fotoItem in fotos | filter: filtro" titulo="{{fotoItem.titulo}}">
                     <img class="img-responsive center-block" src="{{fotoItem.url}}" alt="{{fotoItem.titulo}}">
                 </meu-painel><!-- fim panel -->   
 
