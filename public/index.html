@@ -10,6 +10,7 @@
         <script src="js/lib/angular.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/controllers/fotos-controllers.js"></script>
+        <script src="js/directives/minhas-diretivas.js"></script>
     </head>
     <!-- Informando que o body (ng-controller) sera controlado pelo FotosController -->
     <body ng-controller="FotosController">
@@ -18,16 +19,9 @@
                     <h1 class="text-center">Alurapic</h1>
             </div>
 
-            <div ng-repeat="fotoItem in fotos" class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{fotoItem.titulo}}</h3>
-                </div>
-                <div class="panel-body">
-
-                        <img class="img-responsive center-block" src="{{fotoItem.url}}" alt="{{fotoItem.titulo}}">
-                </div>
-
-            </div><!-- fim panel -->   
+            <meu-painel ng-repeat="fotoItem in fotos" titulo="{{fotoItem.titulo}}">
+               <img class="img-responsive center-block" src="{{fotoItem.url}}" alt="{{fotoItem.titulo}}">
+            </meu-painel><!-- fim panel -->   
                        
         </div> <!-- fim container -->        
     </body>

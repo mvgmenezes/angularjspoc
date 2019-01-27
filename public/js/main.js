@@ -1,4 +1,4 @@
 //#####Primeira etapa criar o modulo para trabalhar com a foto.#####
 
-//criando um modulo, passando a dependencia vazia ([]) 
-angular.module('alurapic', []);
+//criando um modulo, incluindo a diretiva criada minhasDiretivas
+angular.module('alurapic', ['minhasDiretivas']);
