@@ -1,0 +1,21 @@
+<div class="jumbotron">
+    <h1 class="text-center">EluminiPic</h1>
+</div>
+    
+<div class="row">
+    <div class="col-md-12">
+    <form>
+        <!--ng-model permite escrever no scope(propriedade filtro) no momento que o usuario for digitando no input-->    
+        <input class="form-control" placeholder="filtrar pelo título da foto" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+    </form>
+    </div> <!-- fim col-md-12 -->
+</div> <!-- fim row -->
+    
+
+<div class="row">
+    <!-- o ng-repeat tem a propriedde filter e pode ser informando via filter : <valor> -->
+    <meu-painel class="col-md-2 painel-animado" ng-repeat="fotoItem in fotos | filter: filtro" titulo="{{fotoItem.titulo}}">
+        <img class="img-responsive center-block" src="{{fotoItem.url}}" alt="{{fotoItem.titulo}}">
+    </meu-painel><!-- fim panel -->   
+
+</div>

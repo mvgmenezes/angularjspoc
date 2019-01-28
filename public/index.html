@@ -4,39 +4,27 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <title>Alurapic</title>
+        <title>EluminiPic</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/efeitos.css">
         <script src="js/lib/angular.min.js"></script>
+        <script src="js/lib/angular-animate.min.js"></script>
+
+        <!-- Importando o script do módulo ngRoute -->
+
+        <script src="js/lib/angular-route.min.js"></script>
+
         <script src="js/main.js"></script>
         <script src="js/controllers/fotos-controllers.js"></script>
         <script src="js/directives/minhas-diretivas.js"></script>
     </head>
     <!-- Informando que o body (ng-controller) sera controlado pelo FotosController -->
-    <body ng-controller="FotosController">
+    <body>
         <div class="container">
-            <div class="jumbotron">
-                    <h1 class="text-center">Alurapic</h1>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <form>
-                        <!--ng-model permite escrever no scope(propriedade filtro) no momento que o usuario for digitando no input-->
-                        <input ng-model="filtro" class="form-control" placeholder="filtrar">
-                    </form>
-                </div><!--fim col-md-12-->
-            </div><!-- fim row-->
-
-            <div class="row">
-                <!-- o ng-repeat tem a propriedde filter e pode ser informando via filter : <valor> -->
-                <meu-painel class="col-md-2 painel-animado" ng-repeat="fotoItem in fotos | filter: filtro" titulo="{{fotoItem.titulo}}">
-                    <img class="img-responsive center-block" src="{{fotoItem.url}}" alt="{{fotoItem.titulo}}">
-                </meu-painel><!-- fim panel -->   
-
-            </div>
-            
+               
+                <!-- opa! abri uma mega lacuna! -->        
+                <ng-view></ng-view>
                        
         </div> <!-- fim container -->        
     </body>
