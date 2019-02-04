@@ -2,6 +2,8 @@
 <!-- com o ng-app estou carregando o modulo principal para dentro da aplicacao -->
 <html lang="pt-br" ng-app="alurapic">
     <head>
+
+        <base href="/"> <!-- para retirar o # da url, alterando no main.js $locationProvider.html5Mode(true);-->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <title>EluminiPic</title>
@@ -23,8 +25,8 @@
     <body>
         <div class="container">
                
-                <!-- opa! abri uma mega lacuna! -->        
-                <ng-view></ng-view>
+            <!-- Diretiva do angular, e a rota(ngRoute)inclui a view, pra a principal é o main.js -->        
+            <ng-view></ng-view>
                        
         </div> <!-- fim container -->        
     </body>

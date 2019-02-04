@@ -1,4 +1,25 @@
 //#####Primeira etapa criar o modulo para trabalhar com a foto.#####
 
 //criando um modulo, incluindo a diretiva criada minhasDiretivas
-angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute']);
+//ngRoute cria uma rota para o angular
+angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute'])
+    .config(function($routeProvider, $locationProvider){
+
+        //faz que o angular não utilize o # na url, mas deve preparar o backend para que isso funcione
+        $locationProvider.html5Mode(true);
+
+        //ROTA - mapemando a url fotos, quando a url for http://localhost:3000/#/fotos 
+        $routeProvider.when('/fotos', {
+            templateUrl: 'partials/principal.html', //view parcial que será carregada
+            controller: 'FotosController' // Controlador que seja associado a parcial
+        });
+
+        //ROTA - mapemando a url new, quando a url for http://localhost:3000/#/fotos 
+        $routeProvider.when('/fotos/new', {
+            templateUrl: 'partials/foto.html' //view parcial que será carregada
+        });
+
+        //redirecionando se uma url for invalida para a pagina /fotos
+        $routeProvider.otherwise({redirectTo: '/fotos'});
+
+    });
