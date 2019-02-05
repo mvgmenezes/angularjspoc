@@ -16,7 +16,8 @@ angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute'])
 
         //ROTA - mapemando a url new, quando a url for http://localhost:3000/#/fotos 
         $routeProvider.when('/fotos/new', {
-            templateUrl: 'partials/foto.html' //view parcial que será carregada
+            templateUrl: 'partials/foto.html', //view parcial que será carregada
+            controller: 'FotoController' // Controlador que seja associado a parcial
         });
 
         //redirecionando se uma url for invalida para a pagina /fotos
