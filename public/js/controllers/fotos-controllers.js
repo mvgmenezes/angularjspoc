@@ -13,6 +13,8 @@ angular.module('alurapic').controller('FotosController', function ($scope, $http
 
     $scope.filtro = '';
 
+    $scope.mensagem = '';
+
     /*
     //pelo o $http ser assincrono ele nao garante que executara corretamente, por isso ele te dara
     //uma promessa que irá executar. promisse
@@ -34,5 +36,18 @@ angular.module('alurapic').controller('FotosController', function ($scope, $http
     .error(function(erro){
         console.log(erro);
     });
+
+    //funcao remover
+    $scope.remover = function(foto){
+        $http.delete('v1/fotos' + foto._id)
+            .success(function(){
+                console.log('Foto ' + foto.titulo + 'excluída com sucesso');
+                $scope.mensagem = 'Foto ' + foto.titulo + 'excluída com sucesso';
+            })
+            .error(function(erro){
+                console.log('Não foi possivel apagar a foto ' + foto.titulo);
+                $scope.mensagem = 'Não foi possivel apagar a foto ' + foto.titulo;
+            });
+    }
 
 });

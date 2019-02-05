@@ -1,7 +1,11 @@
 <div class="jumbotron">
     <h1 class="text-center">EluminiPic</h1>
 </div>
-    
+
+<p ng-show="mensagem.length" class="alert alert-info">
+    {{mensagem}}
+</p>
+
 <div class="row">
     <div class="col-md-12">
     <form>
@@ -25,7 +29,11 @@
 <div class="row">
     <!-- o ng-repeat tem a propriedde filter e pode ser informando via filter : <valor> -->
     <meu-painel class="col-md-2 painel-animado" ng-repeat="fotoItem in fotos | filter: filtro" titulo="{{fotoItem.titulo}}">
-        <img class="img-responsive center-block" src="{{fotoItem.url}}" alt="{{fotoItem.titulo}}">
+        <minha-foto url="{{fotoItem.url}}" titulo="{{fotoItem.titulo}}">
+        </minha-foto>
+
+        <a class="btn btn-primary btn-block" href="">Editar</a>
+        <button class="btn btn-danger btn-block" ng-click="remover(fotoItem)">Remover</button>
     </meu-painel><!-- fim panel -->   
 
 </div>
