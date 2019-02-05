@@ -39,10 +39,14 @@ angular.module('alurapic').controller('FotosController', function ($scope, $http
 
     //funcao remover
     $scope.remover = function(foto){
-        $http.delete('v1/fotos' + foto._id)
+        $http.delete('v1/fotos/' + foto._id)
             .success(function(){
                 console.log('Foto ' + foto.titulo + 'excluída com sucesso');
                 $scope.mensagem = 'Foto ' + foto.titulo + 'excluída com sucesso';
+
+                //splice - remove um item de um array, removendo a foto do array de fotos
+                var indiceDaFoto = $scope.fotos.indexOf(foto);
+                $scope.fotos.splice(indiceDaFoto, 1);
             })
             .error(function(erro){
                 console.log('Não foi possivel apagar a foto ' + foto.titulo);
