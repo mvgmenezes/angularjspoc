@@ -3,6 +3,9 @@
 
 </div>
 
+<!-- Apresentando mensagem de sucesso -->
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
 <form name="formulario" class="row" ng-submit="submeter()" novalidate> <!--novalidate indica para o html5 não validar o form-->
     <div class="col-md-6">
         <div class="form-group">
