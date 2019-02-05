@@ -41,13 +41,14 @@
             </textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">
+        <!-- ng-disabled="formulario.$invalid" = So apresenta o botao se o formulario for valido-->
+        <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
             Salvar
         </button>
          <a href="/" class="btn btn-primary">Voltar</a>
         <hr>
     </div>
     <div class="col-md-6">
-        <minha-foto></minha-foto>
+        <minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto>
     </div>
 </form>
