@@ -3,15 +3,37 @@
 
 </div>
 
-<form name="formulario" class="row" ng-submit="submeter()">
+<form name="formulario" class="row" ng-submit="submeter()" novalidate> <!--novalidate indica para o html5 não validar o form-->
     <div class="col-md-6">
         <div class="form-group">
             <label>Título</label>
-            <input name="titulo" class="form-control" ng-model="foto.titulo">    
+            <input name="titulo" class="form-control" 
+            ng-model="foto.titulo" 
+            required
+            ng-maxlength="20">    
+
+            <!-- No angular é obrigatorio informar a mensagem 
+            o ng-show é uma validação interna, podemos acessar os itens do form pelo name, 
+            formulario.$submitted - so apresenta se o formulario for submetido-->
+            <span ng-show="formulario.$submitted && formulario.titulo.$error.required" 
+                class="form-control alert-danger">
+                Título obrigatório
+            </span>  
+            
+            <span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" class="form-control alert-danger">
+                No máximo 20 caracteres!
+            </span>
+
         </div>
         <div class="form-group">
             <label>URL</label>
-            <input name="url" class="form-control" ng-model="foto.url">
+            <input name="url" class="form-control" ng-model="foto.url" required>
+
+            <span ng-show = "formulario.$submitted && formulario.url.$error.required" 
+                class="form-control alert-danger">
+                URL obrigatória
+            </span> 
+
         </div>
         <div class="form-group">
             <label>Descrição</label>
