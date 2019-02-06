@@ -20,6 +20,11 @@ angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute'])
             controller: 'FotoController' // Controlador que seja associado a parcial
         });
 
+        //Rota- rota com edit, passando o paramentro id
+        $routeProvider.when('/fotos/edit/:fotoId', {
+            templateUrl: 'partials/foto.html',
+            controller: 'FotoController' 
+        });
         //redirecionando se uma url for invalida para a pagina /fotos
         $routeProvider.otherwise({redirectTo: '/fotos'});
 
