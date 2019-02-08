@@ -44,6 +44,20 @@
             </textarea>
         </div>
 
+        <div class="form-group">
+            <label>Grupo</label>
+            <select name="grupo" class="form-control" required
+            ng-model="foto.grupo"
+            ng-controller="GruposController"
+            ng-options="grupo._id as (grupo.nome | uppercase) for grupo in grupos">
+                <option value="">Escolha um Grupo</option>       
+            </select>
+            <span ng-show = "formulario.$submitted && formulario.grupo.$error.required" 
+                class="form-control alert-danger">
+                Grupo obrigatório
+            </span> 
+        </div>
+
         <!-- ng-disabled="formulario.$invalid" = So apresenta o botao se o formulario for valido-->
         <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
             Salvar

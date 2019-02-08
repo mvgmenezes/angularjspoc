@@ -69,4 +69,20 @@ angular.module('minhasDiretivas', [])
         ddo.template = '<img class="img-responsive center-block" src="{{url}}" alt="{{titulo}}">';           
         
         return ddo;
+    })
+    
+    .directive('meuBotaoPerigo', function(){
+        var ddo = {};
+
+        ddo.restric = "AE";
+
+        ddo.scope = {
+            nome: '@',
+            acao:'&' //como ação dependente do escopo como parametro, usamos o & para acessar a referencia
+        }
+
+        ddo.template = '<button class="btn btn-danger btn-block" ng-click="acao()">{{nome}}</button>';
+
+        return ddo;
     });
+
