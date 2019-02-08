@@ -1,5 +1,5 @@
 //criando o Controller FotoController
-angular.module('alurapic').controller('FotoController', function($scope, recursoFoto, $routeParams){
+angular.module('alurapic').controller('FotoController', function($scope, recursoFoto, $routeParams,cadastroDeFotos){
     
     
     $scope.foto = {};
