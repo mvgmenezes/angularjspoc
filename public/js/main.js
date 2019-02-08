@@ -2,7 +2,7 @@
 
 //criando um modulo, incluindo a diretiva criada minhasDiretivas
 //ngRoute cria uma rota para o angular
-angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute'])
+angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute', 'meusServicos'])
     .config(function($routeProvider, $locationProvider){
 
         //faz que o angular não utilize o # na url, mas deve preparar o backend para que isso funcione
