@@ -24,29 +24,17 @@ angular.module('alurapic').controller('FotoController', function($scope, recurso
         //verificando se os dados enviadaos foram validos
         if ($scope.formulario.$valid) {
 
-            //verificando se o paramentro fotoId veio e se veio será uma alteração
-            if($routeParams.fotoId) {
-
-                recursoFoto.update({$scope.foto._id}, $scope.foto, function(){
-                    $scope.mensagem = 'Foto ' + $scope.foto.titulo + 'alterada com sucesso';
-                }, function(erro){
-                    console.log(erro);
-                    $scope.mensagem = 'Não foi possivel alterar';
-                });
-            }else{
-
-                //enviando os dados para o salvar.
-                recursoFoto.save($scope.foto, function() {
-                    //limpoando o objeto foto 
-                    $scope.foto = {};
-                    $scope.mensagem = 'Foto adicionada com sucesso';
-                    console.log('Foto adicionada com sucesso');
-                }, function(erro) {
-                    $scope.mensagem = 'Não foi possível cadastrar a foto';
-                    console.log('Não foi possível cadastrar a foto');
-                })
-
-            }
+            //Antes para alterar era necessario verificar se o fotoId estava preenchido, 
+            //deixnado muita responsabilidade neste controller, a logica foi passada para o meus servicos
+            //deixndo esse controler somnete com a funcao de cadastrar.
+            cadastroDeFotos.cadastrar($scope.foto)
+            .then(function(dados) {
+                $scope.mensagem = dados.mensagem;
+                if (dados.inclusao) $scope.foto = {};
+            })
+            .catch(function(erro) {
+                $scope.mensagem = erro.mensagem;
+            });
 
         }
     }
